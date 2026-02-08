@@ -25,7 +25,7 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #6BA5A0 0%, #5A9490 50%, #4A8380 100%);
-    background-image: url('images/hero.jpg'); /* Reemplazar con tu foto */
+    background-image: url('hero.jpg'); /* Reemplazar con tu foto */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
