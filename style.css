@@ -44,7 +44,7 @@ body {
     text-align: center;
     color: white;
     padding: 2rem;
-    margin-top: -10vh;
+    margin-top: -15vh;
 }
 
 .hero-title {
@@ -53,7 +53,7 @@ body {
     font-weight: 300;
     letter-spacing: 0.08em;
     margin-bottom: 2rem;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4), 2px 2px 6px rgba(0,0,0,0.2);
 }
 
 .mobile-break {
@@ -67,6 +67,7 @@ body {
     gap: 1.5rem;
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .moon, .sun {
@@ -80,7 +81,7 @@ body {
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto 2rem;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4), 2px 2px 5px rgba(0,0,0,0.2);
     letter-spacing: 0.02em;
 }
 
@@ -313,7 +314,7 @@ body {
     
     .hero-content {
         padding: 1rem;
-        margin-top: -18vh;
+        margin-top: -22vh;
     }
     
     .hero-title {
@@ -327,6 +328,7 @@ body {
     .symbols {
         gap: 1rem;
         font-size: 2rem;
+        margin-bottom: 4rem;
     }
     
     .details {
