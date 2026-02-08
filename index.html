@@ -24,6 +24,7 @@
             <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
         </svg>
     </button>
+    <div class="music-label">Dale play a la música</div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -102,9 +103,15 @@
         const audio = document.getElementById('background-music');
         const playIcon = document.querySelector('.play-icon');
         const pauseIcon = document.querySelector('.pause-icon');
+        const musicLabel = document.querySelector('.music-label');
         let isPlaying = false;
 
         musicToggle.addEventListener('click', () => {
+            // Hide label after first click
+            if (musicLabel) {
+                musicLabel.style.display = 'none';
+            }
+            
             if (isPlaying) {
                 audio.pause();
                 playIcon.style.display = 'block';
