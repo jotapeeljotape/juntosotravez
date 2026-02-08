@@ -25,7 +25,7 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #6BA5A0 0%, #5A9490 50%, #4A8380 100%);
-    background-image: url('hero.jpg'); /* Reemplazar con tu foto */
+    background-image: url('hero.webp'); /* Reemplazar con tu foto */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -47,10 +47,10 @@ body {
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
     margin-bottom: 2rem;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
@@ -74,19 +74,22 @@ body {
 }
 
 .hero-subtitle {
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.6;
     max-width: 800px;
     margin: 0 auto 2rem;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    letter-spacing: 0.02em;
 }
 
 .hero-date {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     letter-spacing: 0.15em;
     margin-top: 2rem;
+    font-weight: 300;
 }
 
 .scroll-indicator {
@@ -155,8 +158,8 @@ body {
 }
 
 .detail-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
     font-weight: 400;
     margin-bottom: 0.5rem;
     color: #333;
@@ -259,11 +262,12 @@ body {
 }
 
 .footer-initials {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1rem, 2vw, 1.3rem);
     color: #6BA5A0;
     letter-spacing: 0.3em;
     margin-top: 0.5rem;
+    font-weight: 300;
 }
 
 /* Responsive adjustments */
