@@ -56,6 +56,10 @@ body {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
 
+.mobile-break {
+    display: none;
+}
+
 .symbols {
     display: flex;
     align-items: center;
@@ -121,7 +125,7 @@ body {
     letter-spacing: 0.2em;
     color: #6BA5A0;
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .detail-title {
@@ -227,7 +231,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center, rgba(232, 220, 196, 0.65) 0%, rgba(232, 220, 196, 0.5) 50%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(107, 165, 160, 0.8) 0%, rgba(232, 220, 196, 0.6) 15%, rgba(232, 220, 196, 0.5) 100%);
 }
 
 /* Music control button */
@@ -304,12 +308,20 @@ body {
 @media (max-width: 768px) {
     .hero {
         background-attachment: scroll;
-        background-position: 55% center;
+        background-position: 40% center;
     }
     
     .hero-content {
         padding: 1rem;
         margin-top: -18vh;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    
+    .mobile-break {
+        display: inline;
     }
     
     .symbols {
@@ -353,8 +365,8 @@ body {
     
     .footer {
         background-attachment: scroll;
-        background-position: center center;
-        min-height: 60vh;
+        background-position: center 30%;
+        min-height: 70vh;
     }
 }
 
