@@ -308,7 +308,7 @@ body {
 @media (max-width: 768px) {
     .hero {
         background-attachment: scroll;
-        background-position: 40% center;
+        background-position: 70% center;
     }
     
     .hero-content {
