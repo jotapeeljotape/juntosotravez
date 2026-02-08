@@ -44,7 +44,7 @@ body {
     text-align: center;
     color: white;
     padding: 2rem;
-    margin-top: -10vh;
+    margin-top: -15vh;
 }
 
 .hero-title {
@@ -87,12 +87,33 @@ body {
     justify-content: center;
     padding: 2rem 0;
     gap: 1rem;
+    background: linear-gradient(180deg, #E8DCC4 0%, #F0E8D8 50%, #E8DCC4 100%);
 }
 
 .divider-line {
     height: 1px;
     width: 4rem;
     background-color: #6BA5A0;
+}
+
+.divider-line:first-child {
+    /* Straight line - keep as is */
+}
+
+.divider-line:last-child {
+    /* Wavy line */
+    background: none;
+    position: relative;
+}
+
+.divider-line:last-child::before {
+    content: '';
+    position: absolute;
+    width: 4rem;
+    height: 1px;
+    background-image: url("data:image/svg+xml,%3Csvg width='64' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2 Q 16 0, 32 2 T 64 2' stroke='%236BA5A0' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .divider-symbols {
@@ -109,6 +130,7 @@ body {
     padding: 2rem 2rem;
     display: grid;
     gap: 3rem;
+    background: linear-gradient(180deg, #F0E8D8 0%, #E8DCC4 50%, #E0D4BC 100%);
 }
 
 .detail-block {
@@ -168,7 +190,7 @@ body {
 
 /* RSVP Section */
 .rsvp {
-    background-color: #6BA5A0;
+    background: linear-gradient(180deg, #7BB5B0 0%, #6BA5A0 50%, #5A9490 100%);
     padding: 6rem 2rem;
 }
 
@@ -279,6 +301,27 @@ body {
     height: 28px;
 }
 
+.music-label {
+    position: fixed;
+    bottom: 2.2rem;
+    right: 6rem;
+    background-color: rgba(107, 165, 160, 0.95);
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-family: 'Lora', serif;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    animation: fadeInOut 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero {
@@ -321,6 +364,10 @@ body {
     .music-button svg {
         width: 24px;
         height: 24px;
+    }
+    
+    .music-label {
+        display: none;
     }
 }
 
