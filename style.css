@@ -25,7 +25,7 @@ body {
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, #6BA5A0 0%, #5A9490 50%, #4A8380 100%);
-    background-image: url('hero.webp'); /* Reemplazar con tu foto */
+    background-image: url('images/hero.jpg'); /* Reemplazar con tu foto */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -270,6 +270,42 @@ body {
     font-weight: 300;
 }
 
+/* Music control button */
+.music-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #6BA5A0;
+    border: 2px solid #E8DCC4;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 0;
+}
+
+.music-button:hover {
+    background-color: #D4A574;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.music-button:active {
+    transform: scale(0.95);
+}
+
+.music-button svg {
+    width: 28px;
+    height: 28px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero {
@@ -298,6 +334,18 @@ body {
         padding: 1rem 2rem;
         width: 100%;
         max-width: 300px;
+    }
+    
+    .music-button {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .music-button svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
