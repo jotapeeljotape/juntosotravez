@@ -389,8 +389,8 @@ body {
 /* Tally popup más grande en mobile */
 @media (max-width: 480px) {
     iframe[src*="tally.so"] {
-        min-height: 85vh !important;
-        height: 85vh !important;
+        min-height: 95vh !important;
+        height: 95vh !important;
     }
 }
 
