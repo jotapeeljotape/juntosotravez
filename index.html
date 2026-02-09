@@ -16,7 +16,7 @@
     </audio>
 
     <!-- Botón de control de música -->
-    <button id="music-toggle" class="music-button" aria-label="Reproducir música">
+    <button id="music-toggle" class="music-button show-after-cta" aria-label="Reproducir música">
         <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z"/>
         </svg>
@@ -25,13 +25,6 @@
         </svg>
     </button>
     <div class="music-label">Suenan los tambores</div>
-
-    <!-- Botón de música principal -->
-    <div class="music-cta">
-        <button id="music-cta-button" class="music-cta-button">
-            🎵 Suenan los tambores
-        </button>
-    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -47,6 +40,13 @@
             <p class="hero-subtitle">
                 Ritual de celebración del amor
             </p>
+            
+            <!-- Botón de música principal (solo mobile) -->
+            <div class="music-cta">
+                <button id="music-cta-button" class="music-cta-button">
+                    Suenan los tambores
+                </button>
+            </div>
         </div>
     </section>
 
@@ -120,6 +120,11 @@
                 playIcon.style.display = 'none';
                 pauseIcon.style.display = 'block';
                 musicToggle.setAttribute('aria-label', 'Pausar música');
+                
+                // Show small music button on mobile
+                if (window.innerWidth <= 768) {
+                    musicToggle.style.display = 'flex';
+                }
                 
                 // Hide label
                 if (musicLabel) {
