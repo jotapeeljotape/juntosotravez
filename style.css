@@ -17,6 +17,79 @@ body {
     overflow-x: hidden;
 }
 
+/* Music CTA Button */
+.music-cta {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2000;
+    animation: musicCtaFadeIn 0.5s ease-out;
+}
+
+@keyframes musicCtaFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.music-cta-button {
+    background: linear-gradient(135deg, #D4A574 0%, #C89563 100%);
+    color: white;
+    border: none;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
+    transition: all 0.3s ease;
+    animation: musicCtaPulse 2s ease-in-out infinite;
+}
+
+@keyframes musicCtaPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 25px rgba(212, 165, 116, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 35px rgba(212, 165, 116, 0.6);
+    }
+}
+
+.music-cta-button:hover {
+    background: linear-gradient(135deg, #C89563 0%, #B88552 100%);
+    transform: scale(1.08);
+    box-shadow: 0 8px 35px rgba(212, 165, 116, 0.6);
+}
+
+.music-cta-button:active {
+    transform: scale(0.98);
+}
+
+.music-cta.hidden {
+    animation: musicCtaFadeOut 0.4s ease-out forwards;
+}
+
+@keyframes musicCtaFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+        pointer-events: none;
+    }
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -328,7 +401,7 @@ body {
     .symbols {
         gap: 1rem;
         font-size: 2rem;
-        margin-bottom: 14rem;
+        margin-bottom: 4rem;
     }
     
     .details {
@@ -344,6 +417,15 @@ body {
         padding: 1rem 2rem;
         width: 100%;
         max-width: 300px;
+    }
+    
+    .music-cta {
+        top: 1rem;
+    }
+    
+    .music-cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
     }
     
     .music-button {
@@ -386,11 +468,3 @@ body {
         font-size: 1.5rem;
     }
 }
-/* Tally popup más grande en mobile */
-@media (max-width: 480px) {
-    iframe[src*="tally.so"] {
-        min-height: 80vh !important;
-        height: 80vh !important;
-    }
-}
-
