@@ -177,16 +177,19 @@
 
         // Conditional RSVP button behavior
         const rsvpButton = document.querySelector('.rsvp-link-mobile');
-        
         if (rsvpButton) {
-            rsvpButton.addEventListener('click', (e) => {
-                // On mobile, let the link work normally (go to /confirmacion.html)
-                // On desktop, prevent link and open Tally popup
-                if (window.innerWidth > 768) {
-                    e.preventDefault();
-                    // Tally popup will open automatically via data-tally-open attribute
-                }
-            });
+    rsvpButton.addEventListener('click', (e) => {
+        // On mobile (≤768px): go to /confirmacion.html
+        // On desktop (>768px): open Tally popup
+        if (window.innerWidth <= 768) {
+            // Let default link behavior work
+            rsvpButton.removeAttribute('data-tally-open');
+        } else {
+            // Prevent navigation, let Tally popup open
+            e.preventDefault();
+        }
+
+        });
         }
 
         // Smooth scroll
