@@ -8,8 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> 
-    <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 <body>
     <!-- Audio de fondo -->
@@ -27,6 +25,13 @@
         </svg>
     </button>
     <div class="music-label">Suenan los tambores</div>
+
+    <!-- Botón de música principal -->
+    <div class="music-cta">
+        <button id="music-cta-button" class="music-cta-button">
+            🎵 Suenan los tambores
+        </button>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -87,33 +92,49 @@
     <section class="rsvp">
         <div class="rsvp-content">
             <p class="rsvp-text">
-                Confirmar presencia<br>
+                Confirmar asistencia<br>
                 antes del 22 de febrero
             </p>
             
-            <a 
-              class="rsvp-button" 
-              data-tally-open="682jo5" 
-              data-tally-layout="modal"
-              data-tally-width="800" 
-              data-tally-emoji-animation="wave"
-              data-tally-height="90"
-                data-tally-overlay="1"
-               data-tally-auto-close="0"
-              style="cursor: pointer;"
-            >
-              Confirmar presencia →
-            </a>        </div>
-                </section>
+            <a href="/confirmacion.html" class="rsvp-button">Confirmar asistencia →</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
     </footer>
 
     <script>
-        // Music player control
-        const musicToggle = document.getElementById('music-toggle');
+        // Music CTA button
+        const musicCtaButton = document.getElementById('music-cta-button');
+        const musicCta = document.querySelector('.music-cta');
         const audio = document.getElementById('background-music');
+        
+        if (musicCtaButton) {
+            musicCtaButton.addEventListener('click', () => {
+                audio.play();
+                musicCta.classList.add('hidden');
+                
+                // Update toggle button state
+                isPlaying = true;
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+                musicToggle.setAttribute('aria-label', 'Pausar música');
+                
+                // Hide label
+                if (musicLabel) {
+                    musicLabel.style.display = 'none';
+                }
+                
+                // Remove from DOM after animation
+                setTimeout(() => {
+                    musicCta.style.display = 'none';
+                }, 500);
+            });
+        }
+        
+        // Original music toggle button
+        const musicToggle = document.getElementById('music-toggle');
         const playIcon = document.querySelector('.play-icon');
         const pauseIcon = document.querySelector('.pause-icon');
         const musicLabel = document.querySelector('.music-label');
