@@ -24,6 +24,7 @@
             <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
         </svg>
     </button>
+    <div class="music-label">Suenan los tambores</div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -43,7 +44,7 @@
             <!-- Botón de música principal (solo mobile) -->
             <div class="music-cta">
                 <button id="music-cta-button" class="music-cta-button">
-                    Toque aquí
+                    Toque para comenzar
                 </button>
             </div>
         </div>
@@ -95,7 +96,15 @@
                 antes del 22 de febrero
             </p>
             
-            <a href="/confirmacion.html" class="rsvp-button">Confirmar asistencia →</a>
+            <a href="/confirmacion.html" 
+               class="rsvp-button rsvp-link-mobile"
+               data-tally-open="682jo5" 
+               data-tally-width="700" 
+               data-tally-overlay="1"
+               data-tally-auto-close="0"
+               data-tally-emoji-animation="wave">
+               Confirmar asistencia →
+            </a>
         </div>
     </section>
 
@@ -163,6 +172,20 @@
             }
             isPlaying = !isPlaying;
         });
+
+        // Conditional RSVP button behavior
+        const rsvpButton = document.querySelector('.rsvp-link-mobile');
+        
+        if (rsvpButton) {
+            rsvpButton.addEventListener('click', (e) => {
+                // On mobile, let the link work normally (go to /confirmacion.html)
+                // On desktop, prevent link and open Tally popup
+                if (window.innerWidth > 768) {
+                    e.preventDefault();
+                    // Tally popup will open automatically via data-tally-open attribute
+                }
+            });
+        }
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
