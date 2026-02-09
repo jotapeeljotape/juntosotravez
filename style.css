@@ -24,7 +24,6 @@ body {
     margin-top: 2rem;
     z-index: 100;
     animation: musicCtaFadeIn 0.5s ease-out;
-    display: none; /* Hidden by default, only show on mobile */
 }
 
 @keyframes musicCtaFadeIn {
@@ -362,34 +361,13 @@ body {
 }
 
 .music-label {
-    position: fixed;
-    bottom: 2.2rem;
-    right: 6rem;
-    background-color: rgba(107, 165, 160, 0.95);
-    color: white;
-    padding: 0.6rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-family: 'Lora', serif;
-    z-index: 999;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    animation: fadeInOut 3s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes fadeInOut {
-    0%, 100% { opacity: 0; }
-    50% { opacity: 1; }
+    display: none !important;
 }
 
 /* Show small music button on desktop */
 @media (min-width: 769px) {
     .music-button.show-after-cta {
         display: flex !important;
-    }
-    
-    .music-cta {
-        display: none !important;
     }
 }
 
@@ -416,7 +394,15 @@ body {
     .symbols {
         gap: 1rem;
         font-size: 2rem;
-        margin-bottom: 4rem;
+        margin-bottom: 8rem;
+    }
+    
+    .hero-subtitle {
+        margin-bottom: 2rem;
+    }
+    
+    .music-cta {
+        margin-top: 3rem;
     }
     
     .details {
