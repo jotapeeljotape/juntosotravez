@@ -400,10 +400,11 @@ body {
     
     .hero-subtitle {
         margin-bottom: 2rem;
+        margin-top: 5rem;
     }
     
     .music-cta {
-        margin-top: 3rem;
+        margin-top: 5rem;
     }
     
     .details {
@@ -424,6 +425,7 @@ body {
     .music-cta-button {
         padding: 1rem 2rem;
         font-size: 1.1rem;
+        mar
     }
     
     .music-button {
