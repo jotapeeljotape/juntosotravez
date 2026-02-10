@@ -21,7 +21,7 @@ body {
 .music-cta {
     position: relative;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 5rem;
     margin-bottom: 2rem;
     z-index: 100;
     animation: musicCtaFadeIn 0.5s ease-out;
