@@ -22,7 +22,7 @@ body {
     position: relative;
     text-align: center;
     margin-top: 2rem;
-    z-index: 100;
+    z-index: 50;
     animation: musicCtaFadeIn 0.5s ease-out;
 }
 
