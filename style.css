@@ -399,12 +399,12 @@ body {
     
     .hero-subtitle {
         margin-bottom: 1rem;
-        margin-top: 2rem;
+        margin-top: 10rem;
     }
     
     .music-cta {
-        margin-top: 5rem;
-        margin-bottom: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
     
     .details {
@@ -436,7 +436,7 @@ body {
     }
     
     .music-button {
-        bottom: 1rem;
+        bottom: 0.5rem;
         right: 1.5rem;
         width: 50px;
         height: 50px;
