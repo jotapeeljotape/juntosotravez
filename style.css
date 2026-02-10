@@ -380,11 +380,12 @@ body {
     
     .hero-content {
         padding: 1rem;
-        margin-top: -1vh;
+        margin-top: -22vh;
     }
     
     .hero-title {
         font-size: clamp(2rem, 6vw, 3rem);
+        margin-top: 4rem;
     }
     
     .mobile-break {
