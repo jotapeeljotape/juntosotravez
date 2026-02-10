@@ -404,7 +404,7 @@ body {
     }
     
     .music-cta {
-        margin-top: 5rem;
+        margin-top: 1rem;
     }
     
     .details {
@@ -429,7 +429,7 @@ body {
     }
     
     .music-button {
-        bottom: 1.5rem;
+        bottom: 0.1rem;
         right: 1.5rem;
         width: 50px;
         height: 50px;
