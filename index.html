@@ -99,20 +99,6 @@
         <span class="divider-line"></span>
     </div>
 
-    <!-- CTA Recuerdos -->
-    <section class="memories-cta">
-        <div class="memories-cta-content">
-            <p class="memories-cta-text">
-                Armamos una pequeña selección de fotos,
-                el video y las playlists que sonaron esa noche.
-            </p>
-
-            <a href="#recuerdos" class="memories-button">
-                Ver recuerdos →
-            </a>
-        </div>
-    </section>
-
     <!-- Recuerdos Section -->
     <section id="recuerdos" class="memories">
         <div class="memories-content">
@@ -127,65 +113,126 @@
                 a ese momento compartido.
             </p>
 
-            <!-- Video -->
-            <div class="video-block">
-                <h3 class="subsection-title">Video</h3>
+            <div class="carousel">
+                <button class="carousel-button carousel-prev" aria-label="Recuerdo anterior">
+                    ←
+                </button>
 
-                <!-- 
-                    Cuando tengas el video, tenemos dos opciones:
+                <div class="carousel-stage">
+                    <!-- Slide de video -->
+                    <div class="carousel-slide active" data-type="video">
+                        <!-- 
+                            Opción A: video subido como archivo.
+                            Cuando lo tengas, subilo como recuerdos/video.mp4
+                            y descomentá este bloque:
 
-                    1. Si está en YouTube/Vimeo, reemplazamos este bloque por un iframe.
-                    2. Si lo subís como archivo, usamos video.mp4 en una carpeta /recuerdos.
+                            <video controls poster="recuerdos/video-preview.jpg">
+                                <source src="recuerdos/video.mp4" type="video/mp4">
+                                Tu navegador no soporta video HTML5.
+                            </video>
+                        -->
 
-                    Ejemplo con archivo:
-                    <video controls poster="recuerdos/video-preview.jpg">
-                        <source src="recuerdos/video.mp4" type="video/mp4">
-                    </video>
-                -->
+                        <!-- Placeholder temporal -->
+                        <div class="video-placeholder">
+                            Video del casamiento
+                        </div>
+                    </div>
 
-                <div class="placeholder-card">
-                    Próximamente: video del casamiento
+                    <!-- Slides de fotos -->
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-01.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-02.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-03.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-04.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-05.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-06.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-07.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-08.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-09.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-10.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-11.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-12.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-13.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-14.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-15.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-16.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-17.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
+
+                    <div class="carousel-slide" data-type="image">
+                        <img src="recuerdos/foto-18.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
+                    </div>
                 </div>
+
+                <button class="carousel-button carousel-next" aria-label="Recuerdo siguiente">
+                    →
+                </button>
+            </div>
+
+            <div class="carousel-footer">
+                <p id="carousel-counter" class="carousel-counter">1 / 19</p>
             </div>
 
             <!-- Playlists -->
             <div class="playlist-block">
-                <h3 class="subsection-title">Playlists</h3>
+                <p class="playlist-label">Playlists de esa noche</p>
 
                 <div class="playlist-grid">
-                    <a href="#" class="playlist-card" target="_blank">
+                    <a href="#" class="playlist-card" target="_blank" rel="noopener">
                         Playlist ceremonia →
                     </a>
 
-                    <a href="#" class="playlist-card" target="_blank">
+                    <a href="#" class="playlist-card" target="_blank" rel="noopener">
                         Playlist fiesta →
                     </a>
-                </div>
-            </div>
-
-            <!-- Galería -->
-            <div class="gallery-block">
-                <h3 class="subsection-title">Fotos</h3>
-
-                <div class="gallery-grid">
-                    <img src="recuerdos/foto-01.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-02.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-03.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-04.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-05.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-06.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-07.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-08.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-09.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-10.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-11.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-12.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-13.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-14.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-15.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-16.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-17.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
-                    <img src="recuerdos/foto-18.webp" alt="Recuerdo del casamiento Elizabeth y Juan Pablo">
                 </div>
             </div>
         </div>
@@ -196,6 +243,7 @@
     </footer>
 
     <script>
+        // Música
         const audio = document.getElementById('background-music');
         const musicCtaButton = document.getElementById('music-cta-button');
         const musicCta = document.querySelector('.music-cta');
@@ -248,19 +296,89 @@
             });
         }
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const target = document.querySelector(this.getAttribute('href'));
+        // Carrusel
+        const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+        const prevButton = document.querySelector('.carousel-prev');
+        const nextButton = document.querySelector('.carousel-next');
+        const counter = document.getElementById('carousel-counter');
 
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+        let currentSlide = 0;
+
+        function pauseAllVideos() {
+            document.querySelectorAll('.carousel-slide video').forEach(video => {
+                video.pause();
             });
+        }
+
+        function updateCarousel() {
+            pauseAllVideos();
+
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            counter.textContent = `${currentSlide + 1} / ${slides.length}`;
+        }
+
+        function goToNextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function goToPrevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', goToNextSlide);
+        }
+
+        if (prevButton) {
+            prevButton.addEventListener('click', goToPrevSlide);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                goToNextSlide();
+            }
+
+            if (event.key === 'ArrowLeft') {
+                goToPrevSlide();
+            }
         });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        const carouselStage = document.querySelector('.carousel-stage');
+
+        if (carouselStage) {
+            carouselStage.addEventListener('touchstart', (event) => {
+                touchStartX = event.changedTouches[0].screenX;
+            }, { passive: true });
+
+            carouselStage.addEventListener('touchend', (event) => {
+                touchEndX = event.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) < 50) {
+                return;
+            }
+
+            if (swipeDistance < 0) {
+                goToNextSlide();
+            } else {
+                goToPrevSlide();
+            }
+        }
+
+        updateCarousel();
 
         // Fade-in animations on scroll
         const observerOptions = {
@@ -277,7 +395,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.thanks-content, .memories-cta-content, .video-block, .playlist-block, .gallery-block').forEach(el => {
+        document.querySelectorAll('.thanks-content, .memories-content, .playlist-block').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
