@@ -248,13 +248,14 @@ body {
 
 .carousel-stage {
     position: relative;
-    width: 100%;
-    height: 88vh;
-    min-height: 88vh;
-    border-radius: 0;
+    width: min(92vw, 1380px);
+    aspect-ratio: 3 / 2;
+    max-height: 82vh;
+    margin: 0 auto;
+    border-radius: 28px;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.12);
-    box-shadow: none;
+    background-color: transparent;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.16);
 }
 
 .carousel-slide {
@@ -278,29 +279,12 @@ body {
 .carousel-slide iframe {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     border: none;
-    background-color: rgba(0, 0, 0, 0.04);
+    display: block;
 }
 
-.video-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(
-        135deg,
-        rgba(107, 165, 160, 0.65),
-        rgba(212, 165, 116, 0.55)
-    );
-    color: white;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    letter-spacing: 0.04em;
-}
-
+/* Botones carrusel */
 .carousel-button {
     width: 58px;
     height: 58px;
@@ -325,14 +309,47 @@ body {
     transform: translateY(-2px);
 }
 
-.carousel-footer {
-    margin-top: 1.2rem;
+/* Fullscreen */
+.fullscreen-button {
+    position: absolute;
+    right: 3.2rem;
+    bottom: 1.6rem;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: 1px solid rgba(232, 220, 196, 0.75);
+    background-color: rgba(107, 165, 160, 0.86);
+    color: white;
+    font-size: 1.45rem;
+    cursor: pointer;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
 }
 
-.carousel-counter {
-    color: #6BA5A0;
-    font-size: 0.95rem;
-    letter-spacing: 0.18em;
+.fullscreen-button:hover {
+    background-color: #D4A574;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.carousel-stage:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+    max-height: none;
+    border-radius: 0;
+    background-color: #111;
+    box-shadow: none;
+}
+
+.carousel-stage:fullscreen img,
+.carousel-stage:fullscreen video,
+.carousel-stage:fullscreen iframe {
+    object-fit: contain;
+    background-color: #111;
 }
 
 /* Playlists */
@@ -523,16 +540,11 @@ body {
     }
 
     .carousel-stage {
-        width: 100vw;
-        height: 82vh;
-        min-height: 82vh;
-        border-radius: 0;
-    }
-
-    .video-placeholder {
-        min-height: 82vh;
-        padding: 2rem;
-        text-align: center;
+        width: 94vw;
+        aspect-ratio: 3 / 2;
+        height: auto;
+        min-height: auto;
+        border-radius: 20px;
     }
 
     .carousel-button {
@@ -555,6 +567,14 @@ body {
 
     .carousel-next {
         right: 0.6rem;
+    }
+
+    .fullscreen-button {
+        right: 1.2rem;
+        bottom: 1rem;
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
     }
 
     .playlist-grid {
@@ -589,14 +609,5 @@ body {
 
     .section-text {
         font-size: 1.05rem;
-    }
-
-    .carousel-stage {
-        height: 78vh;
-        min-height: 78vh;
-    }
-
-    .video-placeholder {
-        min-height: 78vh;
     }
 }
