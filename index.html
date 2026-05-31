@@ -284,7 +284,6 @@
         }
 
         // Carrusel
-        const carousel = document.getElementById('carousel');
         const slides = Array.from(document.querySelectorAll('.carousel-slide'));
         const prevButton = document.querySelector('.carousel-prev');
         const nextButton = document.querySelector('.carousel-next');
@@ -309,46 +308,15 @@
             updateCarousel();
         }
 
-        function enterFakeFullscreen() {
-            carousel.classList.add('fake-fullscreen');
-            document.body.classList.add('fake-fullscreen-active');
-            document.documentElement.classList.add('fake-fullscreen-active');
-            fullscreenButton.textContent = '×';
-            fullscreenButton.setAttribute('aria-label', 'Salir de pantalla completa');
-        }
-
-        function exitFakeFullscreen() {
-            carousel.classList.remove('fake-fullscreen');
-            document.body.classList.remove('fake-fullscreen-active');
-            document.documentElement.classList.remove('fake-fullscreen-active');
-            fullscreenButton.textContent = '⛶';
-            fullscreenButton.setAttribute('aria-label', 'Ver en pantalla completa');
-        }
-
         function toggleFullscreen() {
-            const isMobile = window.innerWidth <= 768;
+            const fullscreenTarget = document.querySelector('.carousel-stage');
 
-            if (carousel.classList.contains('fake-fullscreen')) {
-                exitFakeFullscreen();
-                return;
-            }
-
-            if (isMobile) {
-                enterFakeFullscreen();
-                return;
-            }
-
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-                return;
-            }
-
-            if (carousel.requestFullscreen) {
-                carousel.requestFullscreen().catch(() => {
-                    enterFakeFullscreen();
+            if (!document.fullscreenElement) {
+                fullscreenTarget.requestFullscreen().catch(() => {
+                    fullscreenTarget.scrollIntoView({ behavior: 'smooth' });
                 });
             } else {
-                enterFakeFullscreen();
+                document.exitFullscreen();
             }
         }
 
@@ -383,14 +351,8 @@
                 goToPrevSlide();
             }
 
-            if (event.key === 'Escape') {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen();
-                }
-
-                if (carousel.classList.contains('fake-fullscreen')) {
-                    exitFakeFullscreen();
-                }
+            if (event.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
             }
         });
 
