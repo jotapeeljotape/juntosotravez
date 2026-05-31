@@ -371,10 +371,10 @@ body {
 
 .playlist-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     justify-content: center;
     gap: 1rem;
-    max-width: 1050px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
@@ -383,7 +383,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 72px;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.3rem;
     background-color: transparent;
     color: #6BA5A0;
     text-decoration: none;
@@ -391,12 +391,25 @@ body {
     border-radius: 999px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .playlist-card:hover {
     background-color: #6BA5A0;
     color: white;
     transform: translateY(-2px);
+}
+
+.playlist-card-featured {
+    border-color: rgba(212, 165, 116, 0.75);
+    color: #C89563;
+    background-color: rgba(212, 165, 116, 0.08);
+}
+
+.playlist-card-featured:hover {
+    background-color: #D4A574;
+    border-color: #D4A574;
+    color: white;
 }
 
 /* Footer */
