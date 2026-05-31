@@ -112,7 +112,7 @@
                 Algunas imágenes de ese momento compartido.
             </p>
 
-            <div class="carousel">
+            <div class="carousel" id="carousel">
                 <button class="carousel-button carousel-prev" aria-label="Recuerdo anterior">
                     ←
                 </button>
@@ -202,15 +202,23 @@
 
             <!-- Playlists -->
             <div class="playlist-block">
-                <p class="playlist-label">Playlists de esa noche</p>
+                <p class="playlist-label">La música de esa noche</p>
 
                 <div class="playlist-grid">
-                    <a href="#" class="playlist-card" target="_blank" rel="noopener">
-                        Playlist ceremonia →
+                    <a href="https://open.spotify.com/playlist/22hFnJ53seKNgWr7QR5l8S?si=pmBcsmIQSMai7mQAVADIeg" class="playlist-card" target="_blank" rel="noopener">
+                        Chill →
                     </a>
 
-                    <a href="#" class="playlist-card" target="_blank" rel="noopener">
-                        Playlist fiesta →
+                    <a href="https://open.spotify.com/playlist/0LFrzszXW9f3VDz4qC0AZE?si=Nxr41hW2QLm_h6hWL4bMOw" class="playlist-card" target="_blank" rel="noopener">
+                        Warm up →
+                    </a>
+
+                    <a href="https://open.spotify.com/playlist/28WOYMk74QNuk5cCnIPjDt?si=NCBHwxpGTiyBv3kEf8zfEg" class="playlist-card" target="_blank" rel="noopener">
+                        Para bailar →
+                    </a>
+
+                    <a href="https://open.spotify.com/playlist/1IbOHLoI6IsiHREf9reJxa?si=KUEoO0zKQ_qGnCV-VyS-4w" class="playlist-card" target="_blank" rel="noopener">
+                        Fin de fiesta →
                     </a>
                 </div>
             </div>
@@ -276,10 +284,12 @@
         }
 
         // Carrusel
+        const carousel = document.getElementById('carousel');
         const slides = Array.from(document.querySelectorAll('.carousel-slide'));
         const prevButton = document.querySelector('.carousel-prev');
         const nextButton = document.querySelector('.carousel-next');
         const fullscreenButton = document.getElementById('fullscreen-button');
+        const carouselStage = document.querySelector('.carousel-stage');
 
         let currentSlide = 0;
 
@@ -299,16 +309,40 @@
             updateCarousel();
         }
 
-        function toggleFullscreen() {
-            const fullscreenTarget = document.querySelector('.carousel-stage');
+        function enterFakeFullscreen() {
+            carousel.classList.add('fake-fullscreen');
+            document.body.classList.add('no-scroll');
+            fullscreenButton.setAttribute('aria-label', 'Salir de pantalla completa');
+        }
 
-            if (!document.fullscreenElement) {
-                fullscreenTarget.requestFullscreen().catch(() => {
-                    fullscreenTarget.scrollIntoView({ behavior: 'smooth' });
-                });
-            } else {
-                document.exitFullscreen();
+        function exitFakeFullscreen() {
+            carousel.classList.remove('fake-fullscreen');
+            document.body.classList.remove('no-scroll');
+            fullscreenButton.setAttribute('aria-label', 'Ver en pantalla completa');
+        }
+
+        function toggleFullscreen() {
+            const isMobile = window.innerWidth <= 768;
+            const supportsNativeFullscreen = Boolean(carousel.requestFullscreen);
+
+            if (carousel.classList.contains('fake-fullscreen')) {
+                exitFakeFullscreen();
+                return;
             }
+
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+                return;
+            }
+
+            if (isMobile || !supportsNativeFullscreen) {
+                enterFakeFullscreen();
+                return;
+            }
+
+            carousel.requestFullscreen().catch(() => {
+                enterFakeFullscreen();
+            });
         }
 
         if (nextButton) {
@@ -323,6 +357,14 @@
             fullscreenButton.addEventListener('click', toggleFullscreen);
         }
 
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fullscreenButton.setAttribute('aria-label', 'Ver en pantalla completa');
+            } else {
+                fullscreenButton.setAttribute('aria-label', 'Salir de pantalla completa');
+            }
+        });
+
         document.addEventListener('keydown', (event) => {
             if (event.key === 'ArrowRight') {
                 goToNextSlide();
@@ -332,15 +374,19 @@
                 goToPrevSlide();
             }
 
-            if (event.key === 'Escape' && document.fullscreenElement) {
-                document.exitFullscreen();
+            if (event.key === 'Escape') {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                }
+
+                if (carousel.classList.contains('fake-fullscreen')) {
+                    exitFakeFullscreen();
+                }
             }
         });
 
         let touchStartX = 0;
         let touchEndX = 0;
-
-        const carouselStage = document.querySelector('.carousel-stage');
 
         if (carouselStage) {
             carouselStage.addEventListener('touchstart', (event) => {
