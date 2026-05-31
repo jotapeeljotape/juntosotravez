@@ -17,6 +17,10 @@ body {
     overflow-x: hidden;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 /* Music CTA Button */
 .music-cta {
     position: relative;
@@ -309,7 +313,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Fullscreen */
+/* Fullscreen button */
 .fullscreen-button {
     position: absolute;
     right: 3.2rem;
@@ -335,7 +339,18 @@ body {
     transform: translateY(-2px) scale(1.03);
 }
 
-.carousel-stage:fullscreen {
+/* Fullscreen nativo desktop */
+.carousel:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    transform: none;
+    padding: 0;
+    background-color: #111;
+    display: block;
+}
+
+.carousel:fullscreen .carousel-stage {
     width: 100vw;
     height: 100vh;
     aspect-ratio: auto;
@@ -345,11 +360,88 @@ body {
     box-shadow: none;
 }
 
-.carousel-stage:fullscreen img,
-.carousel-stage:fullscreen video,
-.carousel-stage:fullscreen iframe {
+.carousel:fullscreen .carousel-slide img,
+.carousel:fullscreen .carousel-slide video,
+.carousel:fullscreen .carousel-slide iframe {
     object-fit: contain;
     background-color: #111;
+}
+
+.carousel:fullscreen .carousel-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10001;
+    background-color: rgba(232, 220, 196, 0.82);
+}
+
+.carousel:fullscreen .carousel-prev {
+    left: 1rem;
+}
+
+.carousel:fullscreen .carousel-next {
+    right: 1rem;
+}
+
+.carousel:fullscreen .fullscreen-button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 10002;
+}
+
+/* Fullscreen falso mobile */
+.carousel.fake-fullscreen {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    transform: none;
+    padding: 0;
+    background-color: #111;
+    z-index: 9999;
+    display: block;
+}
+
+.carousel.fake-fullscreen .carousel-stage {
+    width: 100vw;
+    height: 100vh;
+    aspect-ratio: auto;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: #111;
+}
+
+.carousel.fake-fullscreen .carousel-slide img,
+.carousel.fake-fullscreen .carousel-slide video,
+.carousel.fake-fullscreen .carousel-slide iframe {
+    object-fit: contain;
+    background-color: #111;
+}
+
+.carousel.fake-fullscreen .carousel-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10001;
+    background-color: rgba(232, 220, 196, 0.82);
+}
+
+.carousel.fake-fullscreen .carousel-prev {
+    left: 1rem;
+}
+
+.carousel.fake-fullscreen .carousel-next {
+    right: 1rem;
+}
+
+.carousel.fake-fullscreen .fullscreen-button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 10002;
 }
 
 /* Playlists */
@@ -370,7 +462,7 @@ body {
 
 .playlist-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 260px));
+    grid-template-columns: repeat(4, minmax(0, 190px));
     justify-content: center;
     gap: 1rem;
 }
@@ -599,6 +691,25 @@ body {
         background-attachment: scroll;
         background-position: center 30%;
         min-height: 70vh;
+    }
+
+    .carousel.fake-fullscreen .carousel-button {
+        width: 46px;
+        height: 46px;
+        font-size: 1.5rem;
+    }
+
+    .carousel.fake-fullscreen .carousel-prev {
+        left: 0.7rem;
+    }
+
+    .carousel.fake-fullscreen .carousel-next {
+        right: 0.7rem;
+    }
+
+    .carousel.fake-fullscreen .fullscreen-button {
+        right: 0.8rem;
+        bottom: 0.8rem;
     }
 }
 
