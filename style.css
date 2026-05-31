@@ -17,8 +17,13 @@ body {
     overflow-x: hidden;
 }
 
-.no-scroll {
-    overflow: hidden;
+html.fake-fullscreen-active,
+body.fake-fullscreen-active {
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+    position: fixed;
+    inset: 0;
 }
 
 /* Music CTA Button */
@@ -392,56 +397,64 @@ body {
 
 /* Fullscreen falso mobile */
 .carousel.fake-fullscreen {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    transform: none;
-    padding: 0;
-    background-color: #111;
-    z-index: 9999;
-    display: block;
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    transform: none !important;
+    padding: 0 !important;
+    background-color: #111 !important;
+    z-index: 999999 !important;
+    display: block !important;
 }
 
 .carousel.fake-fullscreen .carousel-stage {
-    width: 100vw;
-    height: 100vh;
-    aspect-ratio: auto;
-    max-height: none;
-    border-radius: 0;
-    box-shadow: none;
-    background-color: #111;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: #111 !important;
 }
 
 .carousel.fake-fullscreen .carousel-slide img,
 .carousel.fake-fullscreen .carousel-slide video,
 .carousel.fake-fullscreen .carousel-slide iframe {
-    object-fit: contain;
-    background-color: #111;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    background-color: #111 !important;
 }
 
 .carousel.fake-fullscreen .carousel-button {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10001;
-    background-color: rgba(232, 220, 196, 0.82);
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1000001 !important;
+    background-color: rgba(232, 220, 196, 0.86) !important;
 }
 
 .carousel.fake-fullscreen .carousel-prev {
-    left: 1rem;
+    left: 0.7rem !important;
 }
 
 .carousel.fake-fullscreen .carousel-next {
-    right: 1rem;
+    right: 0.7rem !important;
 }
 
 .carousel.fake-fullscreen .fullscreen-button {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    z-index: 10002;
+    position: fixed !important;
+    right: 0.8rem !important;
+    bottom: 0.8rem !important;
+    z-index: 1000002 !important;
+    background-color: rgba(107, 165, 160, 0.95) !important;
+    font-size: 2rem !important;
 }
 
 /* Playlists */
@@ -691,25 +704,6 @@ body {
         background-attachment: scroll;
         background-position: center 30%;
         min-height: 70vh;
-    }
-
-    .carousel.fake-fullscreen .carousel-button {
-        width: 46px;
-        height: 46px;
-        font-size: 1.5rem;
-    }
-
-    .carousel.fake-fullscreen .carousel-prev {
-        left: 0.7rem;
-    }
-
-    .carousel.fake-fullscreen .carousel-next {
-        right: 0.7rem;
-    }
-
-    .carousel.fake-fullscreen .fullscreen-button {
-        right: 0.8rem;
-        bottom: 0.8rem;
     }
 }
 
