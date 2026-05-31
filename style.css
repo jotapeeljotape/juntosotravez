@@ -371,9 +371,11 @@ body {
 
 .playlist-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 190px));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     justify-content: center;
     gap: 1rem;
+    max-width: 1050px;
+    margin: 0 auto;
 }
 
 .playlist-card {
