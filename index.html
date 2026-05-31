@@ -311,22 +311,30 @@
 
         function enterFakeFullscreen() {
             carousel.classList.add('fake-fullscreen');
-            document.body.classList.add('no-scroll');
+            document.body.classList.add('fake-fullscreen-active');
+            document.documentElement.classList.add('fake-fullscreen-active');
+            fullscreenButton.textContent = '×';
             fullscreenButton.setAttribute('aria-label', 'Salir de pantalla completa');
         }
 
         function exitFakeFullscreen() {
             carousel.classList.remove('fake-fullscreen');
-            document.body.classList.remove('no-scroll');
+            document.body.classList.remove('fake-fullscreen-active');
+            document.documentElement.classList.remove('fake-fullscreen-active');
+            fullscreenButton.textContent = '⛶';
             fullscreenButton.setAttribute('aria-label', 'Ver en pantalla completa');
         }
 
         function toggleFullscreen() {
             const isMobile = window.innerWidth <= 768;
-            const supportsNativeFullscreen = Boolean(carousel.requestFullscreen);
 
             if (carousel.classList.contains('fake-fullscreen')) {
                 exitFakeFullscreen();
+                return;
+            }
+
+            if (isMobile) {
+                enterFakeFullscreen();
                 return;
             }
 
@@ -335,14 +343,13 @@
                 return;
             }
 
-            if (isMobile || !supportsNativeFullscreen) {
+            if (carousel.requestFullscreen) {
+                carousel.requestFullscreen().catch(() => {
+                    enterFakeFullscreen();
+                });
+            } else {
                 enterFakeFullscreen();
-                return;
             }
-
-            carousel.requestFullscreen().catch(() => {
-                enterFakeFullscreen();
-            });
         }
 
         if (nextButton) {
@@ -359,8 +366,10 @@
 
         document.addEventListener('fullscreenchange', () => {
             if (!document.fullscreenElement) {
+                fullscreenButton.textContent = '⛶';
                 fullscreenButton.setAttribute('aria-label', 'Ver en pantalla completa');
             } else {
+                fullscreenButton.textContent = '×';
                 fullscreenButton.setAttribute('aria-label', 'Salir de pantalla completa');
             }
         });
