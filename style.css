@@ -96,7 +96,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #6BA5A0 0%, #5A9490 50%, #4A8380 100%);
+    background-color: #6BA5A0;
     background-image: url('hero.webp');
     background-size: cover;
     background-position: center;
@@ -107,7 +107,13 @@ body {
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at bottom, rgba(232,220,196,0.75) 0%, rgba(107,165,160,0.25) 40%, rgba(0,0,0,0.08) 70%, transparent 100%);
+    background: radial-gradient(
+        ellipse at bottom,
+        rgba(232, 220, 196, 0.75) 0%,
+        rgba(107, 165, 160, 0.25) 40%,
+        rgba(0, 0, 0, 0.08) 70%,
+        transparent 100%
+    );
 }
 
 .hero-content {
@@ -142,7 +148,8 @@ body {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
-.moon, .sun {
+.moon,
+.sun {
     opacity: 0.9;
 }
 
@@ -179,83 +186,60 @@ body {
     gap: 0.5rem;
 }
 
-/* Details Section */
-.details {
-    max-width: 1000px;
+/* Shared Sections */
+.thanks,
+.memories {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem 2rem;
-    display: grid;
-    gap: 3rem;
+    padding: 4rem 2rem;
 }
 
-.detail-block {
+.thanks-content,
+.memories-content {
+    max-width: 820px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.detail-label {
+.section-label {
     font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     color: #6BA5A0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 600;
 }
 
-.detail-title {
+.section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    font-size: clamp(2rem, 4vw, 3.8rem);
     font-weight: 400;
-    margin-bottom: 0.5rem;
+    line-height: 1.2;
     color: #333;
+    margin-bottom: 1.5rem;
 }
 
-.detail-subtitle {
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    color: #666;
-    margin-top: 0.5rem;
-}
-
-.detail-text {
-    font-size: clamp(1rem, 2vw, 1.3rem);
+.section-text {
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
     color: #555;
     line-height: 1.8;
-    max-width: 600px;
+    max-width: 720px;
     margin: 0 auto;
 }
 
-.highlight {
-    color: #6BA5A0;
-    font-weight: 500;
-}
-
-.map-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #6BA5A0;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid transparent;
-}
-
-.map-link:hover {
-    color: #D4A574;
-    border-bottom-color: #D4A574;
-}
-
-/* RSVP Section */
-.rsvp {
+/* CTA Recuerdos */
+.memories-cta {
     background-color: #6BA5A0;
     padding: 6rem 2rem;
 }
 
-.rsvp-content {
+.memories-cta-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-.rsvp-text {
+.memories-cta-text {
     color: white;
     font-size: clamp(1.3rem, 3vw, 2rem);
     font-weight: 400;
@@ -263,7 +247,7 @@ body {
     margin-bottom: 2.5rem;
 }
 
-.rsvp-button {
+.memories-button {
     display: inline-block;
     background-color: #D4A574;
     color: white;
@@ -278,10 +262,96 @@ body {
     border-radius: 12px;
 }
 
-.rsvp-button:hover {
+.memories-button:hover {
     background-color: #C89563;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Recuerdos */
+.memories {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.subsection-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.video-block,
+.playlist-block,
+.gallery-block {
+    margin-top: 5rem;
+}
+
+.placeholder-card {
+    width: 100%;
+    min-height: 260px;
+    border: 1px solid rgba(107, 165, 160, 0.45);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6BA5A0;
+    font-size: 1.1rem;
+    padding: 2rem;
+}
+
+.video-block video,
+.video-block iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.playlist-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    padding: 2rem;
+    background-color: #D4A574;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    transition: all 0.3s ease;
+}
+
+.playlist-card:hover {
+    background-color: #C89563;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(0,0,0,0.18);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+    background-color: rgba(255,255,255,0.25);
 }
 
 /* Footer */
@@ -304,7 +374,12 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(107, 165, 160, 0.8) 0%, rgba(232, 220, 196, 0.6) 15%, rgba(232, 220, 196, 0.5) 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(107, 165, 160, 0.8) 0%,
+        rgba(232, 220, 196, 0.6) 15%,
+        rgba(232, 220, 196, 0.5) 100%
+    );
 }
 
 /* Music control button */
@@ -360,10 +435,6 @@ body {
     height: 28px;
 }
 
-.music-label {
-    display: none !important;
-}
-
 /* Show small music button on desktop */
 @media (min-width: 769px) {
     .music-button.show-after-cta {
@@ -377,69 +448,81 @@ body {
         background-attachment: scroll;
         background-position: 70% center;
     }
-    
+
     .hero-content {
         padding: 1rem;
         margin-top: -22vh;
     }
-    
+
     .hero-title {
         font-size: clamp(2rem, 6vw, 3rem);
         margin-top: 4rem;
     }
-    
+
     .mobile-break {
         display: inline;
     }
-    
+
     .symbols {
         gap: 1rem;
         font-size: 2rem;
         margin-bottom: 6rem;
     }
-    
+
     .hero-subtitle {
         margin-bottom: 2rem;
         margin-top: 10rem;
     }
-    
+
     .music-cta {
         margin-top: 1rem;
     }
-    
-    .details {
-        gap: 3rem;
-        padding: 3rem 1.5rem;
-    }
-    
-    .rsvp {
-        padding: 4rem 1.5rem;
-    }
-    
-    .rsvp-button {
-        padding: 1rem 2rem;
-        width: 100%;
-        max-width: 300px;
-    }
-    
+
     .music-cta-button {
         padding: 1rem 2rem;
         font-size: 1.1rem;
-        mar
     }
-    
+
+    .thanks,
+    .memories {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .memories-cta {
+        padding: 4rem 1.5rem;
+    }
+
+    .memories-button {
+        padding: 1rem 2rem;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .playlist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+    }
+
+    .gallery-grid img {
+        border-radius: 14px;
+    }
+
     .music-button {
-        bottom: 0.1rem;
-        right: 1.5rem;
+        bottom: 0.8rem;
+        right: 1.2rem;
         width: 50px;
         height: 50px;
     }
-    
+
     .music-button svg {
         width: 24px;
         height: 24px;
     }
-    
+
     .footer {
         background-attachment: scroll;
         background-position: center 30%;
@@ -448,8 +531,11 @@ body {
 }
 
 @media (max-width: 480px) {
-    iframe[src*="tally.so"] {
-        min-height: 95vh !important;
-        height: 95vh !important;
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .placeholder-card {
+        min-height: 220px;
     }
 }
